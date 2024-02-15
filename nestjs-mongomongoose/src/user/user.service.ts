@@ -24,14 +24,44 @@ export class UserService {
         return user;
     }
 
+    async newUser(newUserDTO: NewPersonDTO): Promise<User> {
+        const user = new this.userModel(newUserDTO);
+        await user.save();
+        return user;
+    }
+
     async createManyPeople(arrayOfPeople: Array<any>): Promise<any> {
         const users = await this.userModel.create(arrayOfPeople);
         return users;
     }
 
-    async newUser(newUserDTO: NewPersonDTO): Promise<User> {
-        const user = new this.userModel(newUserDTO);
-        await user.save();
+    async findByFood(food: string): Promise<User> {
+        const user = await this.userModel.findOne({ favoriteFoods: { $in: [food] } });
+        return user;
+    }
+
+    async getPersonById(id: string): Promise<User> {
+        const user = await this.userModel.findById(id);
+        return user;
+    }
+
+    async findEditThenSave(id: string): Promise<User | any> {
+        const foodToAdd = 'hamburger';
+
+        try {
+            const user = await this.userModel.findById(id);
+            user.favoriteFoods.push(foodToAdd);
+            await user.save();
+
+            return user;
+        } catch (error) {
+            return { error: 'User not found.' }
+        }
+    }
+
+    async updateAge(id: string, newAge: number): Promise<User> {
+        const user = await this.userModel.findById(id);
+        user.age = newAge;
         return user;
     }
 
@@ -43,5 +73,22 @@ export class UserService {
     async deleteUser(id: string): Promise<User> {
         const deletedUser = await this.userModel.findByIdAndDelete(id);
         return deletedUser;
+    }
+
+    async deleteMany(): Promise<any> {
+        const nameToRemove = 'Joel';
+        
+        const deletedUsers = await this.userModel.deleteMany({ name: nameToRemove });
+        return deletedUsers;
+    }
+
+    async queryChain(): Promise<any> {
+        const foodToSearch = "fries";
+
+        const users = await this.userModel.find({ favoriteFoods: { $in: [foodToSearch] } })
+            .sort({ name: 1 })
+            .limit(2);
+        
+        return users;
     }
 }

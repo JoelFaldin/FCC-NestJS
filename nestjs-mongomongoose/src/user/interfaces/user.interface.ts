@@ -2,6 +2,6 @@ import { Document } from 'mongoose';
 
 export interface User extends Document {
     readonly name: string;
-    readonly age: number;
-    readonly favoriteFood: Array<string>;
+    age: number;
+    readonly favoriteFoods: Array<string>;
 }
