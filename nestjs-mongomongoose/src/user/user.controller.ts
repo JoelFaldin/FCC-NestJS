@@ -18,9 +18,23 @@ export class UserController {
         res.json(user);
     }
 
-    @Get('/user')
-    getUser(@Res() res) {
-        res.json({ test: test })
+    // POST http://localhost:3000/user/createManyPeople
+    // [
+    //     {
+    //         "name": "Josh",
+    //         "age": 22,
+    //         "favoriteFoods": ["fries", "tomatoes", "orange juice"]
+    //     },
+    //     {
+    //         "name": "Andrew",
+    //         "age": 23,
+    //         "favoriteFoods": ["iced coffee", "ramen"]
+    //     }
+    // ]
+    @Post('/createManyPeople')
+    async getUser(@Res() res, @Body() arrayOfPeople: NameObject[]) {
+        const users = await this.userService.createManyPeople(arrayOfPeople);
+        res.json(users);
     }
 
     @Post('/create')

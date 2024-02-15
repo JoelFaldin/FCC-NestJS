@@ -24,6 +24,11 @@ export class UserService {
         return user;
     }
 
+    async createManyPeople(arrayOfPeople: Array<any>): Promise<any> {
+        const users = await this.userModel.create(arrayOfPeople);
+        return users;
+    }
+
     async newUser(newUserDTO: NewPersonDTO): Promise<User> {
         const user = new this.userModel(newUserDTO);
         await user.save();
