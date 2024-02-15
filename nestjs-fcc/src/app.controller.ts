@@ -10,7 +10,7 @@ export class AppController {
 
   @Get()
   serveHTML(@Res() res: Response) {
-    const absolutePath = join(__dirname, '..', 'public', 'index.html');
+    const absolutePath = join(__dirname, '..', '..', 'public', 'index.html');
     res.sendFile(absolutePath);
   }
 
