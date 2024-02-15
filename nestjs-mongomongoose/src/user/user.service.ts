@@ -21,8 +21,7 @@ export class UserService {
 
     async getByName(name: string): Promise<any> {
         const user = await this.userModel.find({ name: name });
-        console.log(user)
-        // return user;
+        return user;
     }
 
     async newUser(newUserDTO: NewPersonDTO): Promise<User> {
