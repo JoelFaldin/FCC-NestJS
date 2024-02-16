@@ -32,4 +32,17 @@ export class AppService {
       }
     }
   }
+
+  async searchUrl(url: string) {
+    if (Number.isNaN(+url)) {
+      return { error: 'Invalid url' }
+    }
+    const existsUrl = await this.urlModel.findOne({ shortened_url: url });
+
+    if (existsUrl) {
+      return { redirect: existsUrl.original_url };
+    } else {
+      return { error: 'This url does not exists in the database!' }
+    }
+  }
 }
