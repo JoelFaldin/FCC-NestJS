@@ -5,7 +5,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 import * as dotenv from 'dotenv';
 import { MongooseModule } from '@nestjs/mongoose';
-import { userSchema } from 'schemas/schemas';
+import { exerciseSchema, userSchema } from 'schemas/schemas';
 
 dotenv.config();
 
@@ -13,6 +13,7 @@ dotenv.config();
   imports: [
     MongooseModule.forRoot(process.env.MONGO_URI),
     MongooseModule.forFeature([{ name: 'User', schema: userSchema }]),
+    MongooseModule.forFeature([{ name: 'Exercise', schema: exerciseSchema }]),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', '..', 'public'),
     }),
