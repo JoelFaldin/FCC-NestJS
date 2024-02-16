@@ -1,14 +1,17 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UserModule } from './user/user.module';
-import { MongooseModule } from '@nestjs/mongoose'
+import { MongooseModule } from '@nestjs/mongoose';
+import { urlSchema } from './schemas/url.schema'
 import * as dotenv from 'dotenv';
 
-dotenv.config()
+dotenv.config();
 
 @Module({
-  imports: [UserModule, MongooseModule.forRoot(process.env.MONGO_URI)],
+  imports: [
+    MongooseModule.forRoot(process.env.MONGO_URI),
+    MongooseModule.forFeature([{ name: 'Url', schema: urlSchema }])
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
