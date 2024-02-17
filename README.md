@@ -1,6 +1,6 @@
 # FreeCodeCamps Backend and APIs development in NestJS
 
-Recently, I finished FreeCodeCamps <a href="https://www.freecodecamp.org/learn/back-end-development-and-apis/">Backend development and APIs</a> course where I used NodeJS and Express to build microservices. After that I started learning <a href="https://nestjs.com">NestJS</a>, another backend framework that uses Express under the hood. And I had the _incredible_ idea to re-write FCCs projects using NestJS, as a way to get aquainted with the framework.
+Recently, I finished FreeCodeCamps [Backend development and APIs](https://www.freecodecamp.org/learn/back-end-development-and-apis/) course where I used NodeJS and Express to build microservices. After that I started learning [NestJS](https://nestjs.com), another backend framework that uses Express under the hood. And I had the _incredible_ idea to re-write FCCs projects using NestJS, as a way to get aquainted with the framework.
 
 **Important: In all of these projects I used the pnpm package manager.**
 If you want to check these projects, it is encouraged to use pnpm too.
@@ -20,17 +20,11 @@ To create a new NestJS project:
 `$ nest new project-name`
 
 
-<a href="https://www.freecodecamp.org">
-![FreeCodeCamp logo](/nestjs-fcc/images//FreeCodeCamp_logo.png)
-</a>
+[![FreeCodeCamp logo](/nestjs-fcc/images/FreeCodeCamp_logo.png)](https://www.freecodecamp.org)
+[![NestJS cat](/nestjs-fcc/images/NestJS-cat.png)](https://nestjs.com)
 
+I love the NestJS [cat image](https://intuji.com/what-is-nestjs-and-what-is-it-used-for/).
 
-<a href="https://nestjs.com">
-![NestJS cat](/nestjs-fcc/images/NestJS-cat.png)
-</a>
-
-
-I love the NestJS <a href="https://intuji.com/what-is-nestjs-and-what-is-it-used-for/">cat image</a>.
 
 ## Contents
 
