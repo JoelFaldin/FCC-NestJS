@@ -34,7 +34,7 @@ In this project I mainly worked in app.controller.ts, where I defined routes han
 Here, I connected the server to a MongoDB database (using the Atlas service). I defined an schema and managed multiple route handlers with different request types. I also used the @Res, @Body, @Param and @Query decorators.
 * **nestjs-project-timestamp**:
 This is the first project of the 5 final projects of the FCCs course. Here, I use 2 route handlers to return jsons with dates.
-*** nestjs-header-parser**:
+* ** nestjs-header-parser**:
 In this second final project I served an HTML page with its respective CSS file. In app.controller.ts I have a route handler that calls a service, and there I build the json to return. 
 * **nestjs-url-shortener**:
 Here, I use a MongoDB database to store a link, and assign a number to it. When theres a request to 'app-url/api/shorturl/:url', url being a number, it will redirect the user to the original url.
